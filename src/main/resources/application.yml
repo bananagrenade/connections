@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://testuser:nlf2K6FU297rkKAG@cluster0.t84gaqd.mongodb.net/?retryWrites=true&w=majority
+      database: customers
+  output:
+    ansi:
+      enabled: ALWAYS
+
+logging:
+  level:
+    com.abe: INFO
+
