@@ -1,4 +1,4 @@
-package com.abe.demo.models;
+package com.abe.demo.models.person;
 
 import lombok.Data;
 

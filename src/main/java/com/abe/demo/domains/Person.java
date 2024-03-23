@@ -1,6 +1,5 @@
 package com.abe.demo.domains;
 
-import com.abe.demo.enums.CustomerType;
 import com.abe.demo.enums.PersonType;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -8,8 +7,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -22,8 +19,8 @@ import java.util.List;
         property = "personType"
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = Instructor.class, name = "instructor"),
-        @JsonSubTypes.Type(value = Student.class, name = "student"),
+        @JsonSubTypes.Type(value = Instructor.class, name = "INSTRUCTOR"),
+        @JsonSubTypes.Type(value = Student.class, name = "STUDENT"),
 })
 @EqualsAndHashCode(callSuper = true)
 public class Person extends Customer {

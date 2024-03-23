@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class HelloController {
@@ -19,12 +20,12 @@ public class HelloController {
         List<Customer> customerList = new ArrayList<>();
 
         Person person = new Person();
-        person.setId("123");
+        person.setId(UUID.randomUUID());
         person.setFirstName("firstName");
         person.setLastName("lastName");
 
         Studio studio = new Studio();
-        studio.setId("123");
+        studio.setId(UUID.randomUUID());
         studio.setName("studio name");
 
         customerList.add(person);
