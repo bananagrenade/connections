@@ -21,8 +21,8 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.save(customer);
     }
 
-    public Customer getCustomerByCustomerId(UUID customerId) {
-        return customerRepository.findById(customerId.toString())
+    public Customer getCustomerById(UUID id) {
+        return customerRepository.findById(id)
                 .orElseThrow(RuntimeException::new);
     }
 }

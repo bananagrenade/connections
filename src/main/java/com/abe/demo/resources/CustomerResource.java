@@ -51,7 +51,7 @@ public class CustomerResource {
 
         log.info("Fetching customer by customerId={}", id);
 
-        Customer customer = customerService.getCustomerByCustomerId(id);
+        Customer customer = customerService.getCustomerById(id);
 
         return customerModelAssembler.toModel(customer);
     }

@@ -3,6 +3,7 @@ spring:
     mongodb:
       uri: mongodb+srv://testuser:nlf2K6FU297rkKAG@cluster0.el654xb.mongodb.net/?retryWrites=true&w=majority&appName=cluster0
       database: customers
+      uuid-representation: standard
   output:
     ansi:
       enabled: ALWAYS

@@ -2,12 +2,11 @@ package com.abe.demo.repositories;
 
 import com.abe.demo.domains.Customer;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.NoRepositoryBean;
 
 import java.util.List;
+import java.util.UUID;
 
-@NoRepositoryBean
-public interface CustomerRepository<T extends BaseEntity> extends MongoRepository<T, Long> {
+public interface CustomerRepository extends MongoRepository<Customer, UUID> {
     List<Customer> findAll();
 
 }
