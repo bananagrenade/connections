@@ -1,9 +1,8 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://testuser:nlf2K6FU297rkKAG@cluster0.el654xb.mongodb.net/?retryWrites=true&w=majority&appName=cluster0
+      uri: mongodb+srv://testuser:nlf2K6FU297rkKAG@cluster0.jzcp1cs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: customers
-      uuid-representation: standard
   output:
     ansi:
       enabled: ALWAYS

@@ -1,4 +1,4 @@
-package com.abe.demo.resources;
+package com.abe.connections.resources;
 
 class CustomerResourceTest {
 
