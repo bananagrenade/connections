@@ -1,8 +1,8 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://testuser:nlf2K6FU297rkKAG@cluster0.jzcp1cs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-      database: customers
+      uri: mongodb+srv://abe:TmSlenDm3B221kRH@cluster0.jzcp1cs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      database: users
   output:
     ansi:
       enabled: ALWAYS

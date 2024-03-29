@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public Customer getCustomerById(UUID id) {
+    public User getUserById(UUID id) {
         return customerRepository.findById(id)
                 .orElseThrow(RuntimeException::new);
     }

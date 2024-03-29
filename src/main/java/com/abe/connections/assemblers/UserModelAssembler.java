@@ -1,5 +1,6 @@
 package com.abe.connections.assemblers;
 
+import com.abe.connections.models.domains.Customer;
 import com.abe.connections.models.domains.User;
 import com.abe.connections.resources.UserResource;
 import org.springframework.hateoas.EntityModel;
@@ -16,6 +17,8 @@ public class UserModelAssembler implements RepresentationModelAssembler<User, En
     public EntityModel<User> toModel(User user) {
 
         return EntityModel.of(user,
-                linkTo(methodOn(UserResource.class).one(user)).withSelfRel());
+                linkTo(methodOn(UserResource.class).newCustomer((Customer) user)).withSelfRel(),
+                linkTo(methodOn(UserResource.class).one(user.getId())).withSelfRel());
     }
+
 }

@@ -1,6 +1,7 @@
 package com.abe.connections.resources;
 
 import com.abe.connections.assemblers.UserModelAssembler;
+import com.abe.connections.models.domains.Customer;
 import com.abe.connections.models.domains.User;
 import com.abe.connections.services.CustomerService.UserService;
 import lombok.AllArgsConstructor;
@@ -8,12 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @Slf4j
 @RestController
@@ -25,12 +24,12 @@ public class UserResource {
     private final UserModelAssembler userModelAssembler;
 
     @PostMapping
-    public ResponseEntity<?> one(@RequestBody @Valid User user) {
+    public ResponseEntity<?> newCustomer(@RequestBody @Valid Customer customer) {
 
-        log.info("Creating a new user={}", user.getUserType());
+        log.info("Creating a new customer={}", customer.getUserType());
 
-        User savedUser = userService.createUser(user);
-        EntityModel<User> savedUserEntityModel = userModelAssembler.toModel(userService.createUser(user));
+        User savedUser = userService.createUser(customer);
+        EntityModel<User> savedUserEntityModel = userModelAssembler.toModel(userService.createUser(customer));
 
         log.info("Created {} with id={}",
                 savedUser.getUserType(),
@@ -41,15 +40,15 @@ public class UserResource {
                 .body(savedUser);
     }
 
-//    @GetMapping("/{id}")
-//    public EntityModel<Customer> one(@PathVariable UUID id) {
-//
-//        log.info("Fetching customer by customerId={}", id);
-//
-//        Customer customer = userService.getCustomerById(id);
-//
-//        return userModelAssembler.toModel(custousermer);
-//    }
+    @GetMapping("/{id}")
+    public EntityModel<User> one(@PathVariable UUID id) {
+
+        log.info("Fetching customer by customerId={}", id);
+
+        User user = userService.getUserById(id);
+
+        return userModelAssembler.toModel(user);
+    }
 
 //    @GetMapping
 //    public CollectionModel<EntityModel<Customer>> all() {
