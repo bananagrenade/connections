@@ -1,4 +1,4 @@
-package com.abe.connections.services.CustomerService;
+package com.abe.connections.services.UserService;
 
 import com.abe.connections.models.domains.persons.User;
 import com.abe.connections.repositories.UserRepository;

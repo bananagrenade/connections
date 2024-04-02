@@ -2,7 +2,7 @@ package com.abe.connections.resources;
 
 import com.abe.connections.assemblers.UserModelAssembler;
 import com.abe.connections.models.domains.persons.User;
-import com.abe.connections.services.CustomerService.UserService;
+import com.abe.connections.services.UserService.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.hateoas.EntityModel;
