@@ -1,6 +1,6 @@
 package com.abe.connections.services.CustomerService;
 
-import com.abe.connections.models.domains.User;
+import com.abe.connections.models.domains.persons.User;
 
 import java.util.UUID;
 

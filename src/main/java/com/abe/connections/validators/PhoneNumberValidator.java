@@ -20,9 +20,14 @@ public class PhoneNumberValidator implements ConstraintValidator<ValidPhoneNumbe
             return true;
         }
 
+        // Check if the phone number contains non-numeric characters
+        if (!phoneNumber.matches("[0-9]+")) {
+            return false;
+        }
+
         try {
             PhoneNumberUtil phoneNumberUtil = PhoneNumberUtil.getInstance();
-            Phonenumber.PhoneNumber number = phoneNumberUtil.parse(phoneNumber, null);
+            Phonenumber.PhoneNumber number = phoneNumberUtil.parse(phoneNumber, "US");
             return phoneNumberUtil.isValidNumber(number);
         } catch (NumberParseException e) {
             return false;
