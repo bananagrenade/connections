@@ -1,6 +1,6 @@
 package com.abe.connections.repositories;
 
-import com.abe.connections.models.domains.Business;
+import com.abe.connections.models.domains.businesses.Business;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

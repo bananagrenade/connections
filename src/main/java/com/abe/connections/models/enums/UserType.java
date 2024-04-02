@@ -1,8 +1,9 @@
 package com.abe.connections.models.enums;
 
 public enum UserType {
-    BUSINESS,
-    GUEST,
+    ADMIN,
+    AGENT,
     CUSTOMER,
+    EMPLOYEE
 
 }
