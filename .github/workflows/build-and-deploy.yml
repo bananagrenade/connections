@@ -79,7 +79,7 @@ jobs:
 
       # Copy the JAR file from the previous job
       - name: Copy JAR file from build job
-        uses: actions/download-artifact@v
+        uses: actions/download-artifact@v4
         with:
           name: app.jar
           path: ${{ github.workspace }}
