@@ -39,7 +39,7 @@ jobs:
 
       # Copy the built JAR file to the workspace
       - name: Copy JAR file to workspace
-        run: cp build/libs/*.jar $GITHUB_WORKSPACE/app.jar
+        run: cp build/libs/*.jar $GITHUB_WORKSPACE/
   #      - name: Upload build artifacts
   #        uses: actions/upload-artifact@v4
   #        with:
