@@ -77,6 +77,9 @@ jobs:
       - name: echo
         run: cd ${{ github.workspace }} ls
 
+      - name: echo2
+        run: ls
+
       # Copy the JAR file from the previous job
       - name: Copy JAR file from build job
         uses: actions/download-artifact@v4
