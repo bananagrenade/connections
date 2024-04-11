@@ -1,26 +1,26 @@
 # For help completing this file, see the "AppSpec File Reference" in the
 #   "CodeDeploy User Guide" at
 #   https://docs.aws.amazon.com/codedeploy/latest/userguide/app-spec-ref.html
-version: 0.0
-os: linux
-files:
-  - source: /
-    destination: /home/ec2-user/server
-permissions:
-  - object: /
-    pattern: "**"
-    owner: ec2-user
-    group: ec2-user
-hooks:
-  ApplicationStop:
-    - location: scripts/server_stop.sh
-      timeout: 20
-      runas: ec2-user
-  ApplicationStart:
-    - location: scripts/server_start.sh
-      timeout: 20
-      runas: ec2-user
-  ValidateService:
-    - location: scripts/server_validate.sh
-      timeout: 60
-      runas: ec2-user
+#version: 0.0
+#os: linux
+#files:
+#  - source: /
+#    destination: /home/ec2-user/server
+#permissions:
+#  - object: /
+#    pattern: "**"
+#    owner: ec2-user
+#    group: ec2-user
+#hooks:
+#  ApplicationStop:
+#    - location: scripts/server_stop.sh
+#      timeout: 20
+#      runas: ec2-user
+#  ApplicationStart:
+#    - location: scripts/server_start.sh
+#      timeout: 20
+#      runas: ec2-user
+#  ValidateService:
+#    - location: scripts/server_validate.sh
+#      timeout: 60
+#      runas: ec2-user
