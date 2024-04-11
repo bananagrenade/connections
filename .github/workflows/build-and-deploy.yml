@@ -40,11 +40,12 @@ jobs:
       # Copy the built JAR file to the workspace
       - name: Copy JAR file to workspace
         run: cp build/libs/connections-*-SNAPSHOT.jar $GITHUB_WORKSPACE/app.jar
-  #      - name: Upload build artifacts
-  #        uses: actions/upload-artifact@v4
-  #        with:
-  #          name: Package
-  #          path: build/libs
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Package
+          path: build/libs
   #
   dependency-submission:
     runs-on: ubuntu-latest
@@ -73,9 +74,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: echo
+        run: cd ${{ github.workspace }} ls
+
       # Copy the JAR file from the previous job
       - name: Copy JAR file from build job
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v
         with:
           name: app.jar
           path: ${{ github.workspace }}
