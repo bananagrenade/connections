@@ -26,11 +26,7 @@ jobs:
           echo "NEW_VERSION=$(echo $new_version)" >> $GITHUB_ENV
 
       - name: Commit Version Increment
-        run: |
-          echo $NEW_VERSION
-          git status
-          git add .
-          git commit -m "Increment version to $NEW_VERSION"
+        run: git commit -am "Increment version to $NEW_VERSION"
 
       - name: Push Changes
         run: |
