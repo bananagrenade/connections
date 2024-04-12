@@ -24,7 +24,6 @@ jobs:
         run: |
           ls
           new_version=$(./scripts/increment_version.sh)
-          echo "hi"
           echo "NEW_VERSION=$(echo $new_version)" >> $GITHUB_ENV
 
       - name: Test
