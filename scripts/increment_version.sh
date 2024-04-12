@@ -20,7 +20,7 @@ else
 fi
 
 # Update the version in the build.gradle file
-sed -i "s/version \"$current_version\"/version \"$new_version\"/" build.gradle
+sed -i "s/version = '$current_version'/version = '$new_version'/" build.gradle
 
 # Echo the new version
 echo "$new_version"
