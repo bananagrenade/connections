@@ -15,8 +15,8 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config --global user.name 'Your Bot Account Name'
-          git config --global user.email 'your.bot.account@example.com'
+          git config --global user.name bananagrenade5
+          git config --global user.email 'bananagrenade5@gmail.com'
           git config --global credential.helper store  # Use credential helper to store access token
 
       - name: Increment Version
@@ -28,7 +28,9 @@ jobs:
       - name: Commit Version Increment
         run: |
           echo $NEW_VERSION
-          git commit -am "Increment version to ${{ steps.increment-version.outputs.new_version }}"
+          git status
+          git add .
+          git commit -m "Increment version to $NEW_VERSION"
 
       - name: Push Changes
         run: |
