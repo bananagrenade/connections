@@ -22,7 +22,6 @@ jobs:
       - name: Increment Version
         id: increment-version
         run: |
-          ls
           new_version=$(./scripts/increment_version.sh)
           echo "NEW_VERSION=$(echo $new_version)" >> $GITHUB_ENV
 
