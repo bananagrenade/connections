@@ -25,7 +25,7 @@ jobs:
           # Write your version incrementing logic here
           # For example, you can use a custom script, a Gradle task, or a dedicated versioning tool
           # After incrementing the version, echo the new version number to the output
-          new_version=$(../../scripts/increment_version.sh)
+          new_version=$(./scripts/increment_version.sh)
           echo "::set-output name=new_version::$new_version"
 
       - name: Commit Version Increment
