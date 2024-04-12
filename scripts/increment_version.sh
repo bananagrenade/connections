@@ -18,10 +18,10 @@ elif [[ $last_commit == *"feat:"* ]]; then
 else
     # Increment patch version for other changes
     current_version=$(grep -oP '^version "\K\d+\.\d+\.\d+' build.gradle)
-    echo "patch $current_version"
+    echo "$current_version"
     new_version=$(echo $current_version | awk -F. '{$3++; print $1 "." $2 "." $3}')
 fi
-echo "patch $new_version"
+echo "$new_version"
 
 echo "New version: $new_version"
 
