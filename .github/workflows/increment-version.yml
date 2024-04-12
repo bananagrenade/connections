@@ -1,0 +1,37 @@
+name: Update Version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Git
+        run: |
+          git config --global user.name 'Your Bot Account Name'
+          git config --global user.email 'your.bot.account@example.com'
+          git config --global credential.helper store  # Use credential helper to store access token
+
+      - name: Increment Version
+        id: increment-version
+        run: |
+          # Write your version incrementing logic here
+          # For example, you can use a custom script, a Gradle task, or a dedicated versioning tool
+          # After incrementing the version, echo the new version number to the output
+          new_version=$(../../scripts/increment_version.sh)
+          echo "::set-output name=new_version::$new_version"
+
+      - name: Commit Version Increment
+        run: |
+          git commit -am "Increment version to ${{ steps.increment-version.outputs.new_version }}"
+
+      - name: Push Changes
+        run: |
+          git push origin main
