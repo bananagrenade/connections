@@ -31,6 +31,7 @@ jobs:
 
       - name: Commit Version Increment
         run: |
+          echo ${{ steps.increment-version.outputs.new_version }}"
           git commit -am "Increment version to ${{ steps.increment-version.outputs.new_version }}"
 
       - name: Push Changes
