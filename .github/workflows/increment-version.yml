@@ -23,7 +23,7 @@ jobs:
         id: increment-version
         run: |
           new_version=$(./scripts/increment_version.sh)
-          echo "NEW_VERSION=$(echo $new_version)" >> $GITHUB_ENV
+          echo "$(echo $new_version)" >> NEW_VERSION
 
       - name: Test
         run: echo $NEW_VERSION
