@@ -4,6 +4,7 @@
 last_commit=$(git log -1 --pretty=%B)
 #!/bin/bash
 
+ls
 # Determine the type of version increment based on the commit message
 if [[ $last_commit == *"BREAKING CHANGE"* ]]; then
     # Increment major version for breaking changes
