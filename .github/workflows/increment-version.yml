@@ -26,7 +26,10 @@ jobs:
           # For example, you can use a custom script, a Gradle task, or a dedicated versioning tool
           # After incrementing the version, echo the new version number to the output
           new_version=$(./scripts/increment_version.sh)
-          echo "::set-output name=new_version::$new_version"
+          echo "NEW_VERSION=$(echo $new_version)" >> $GITHUB_ENV
+
+      - name: Test
+        run: echo $NEW_VERSION
 
       - name: Commit Version Increment
         run: |
