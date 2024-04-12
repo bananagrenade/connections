@@ -22,9 +22,7 @@ jobs:
       - name: Increment Version
         id: increment-version
         run: |
-          # Write your version incrementing logic here
-          # For example, you can use a custom script, a Gradle task, or a dedicated versioning tool
-          # After incrementing the version, echo the new version number to the output
+          ls
           new_version=$(./scripts/increment_version.sh)
           echo "NEW_VERSION=$(echo $new_version)" >> $GITHUB_ENV
 
