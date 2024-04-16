@@ -13,6 +13,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  BUILD_VERSION: $(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -40,7 +43,7 @@ jobs:
         id: set_variable
         run: |
           current_version=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
-          echo "::set-output name=build_version::$current_version"
+          echo "$BUILD_VERSION"
       - name: Use the variable
         run: echo "The value is ${{ steps.set_variable.outputs.build_version }}"
       - name: Upload build artifacts
