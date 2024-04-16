@@ -47,7 +47,7 @@ jobs:
           path: build/libs/connections-$GRADLE_VERSION.jar
       - name: Print wd
         run: |
-          pwd
+          cd build/libs/
           ls
 
   dependency-submission:
