@@ -39,9 +39,8 @@ jobs:
       - name: Set the variable
         id: set_variable
         run: |
-          ls
-          current_version=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
-          echo "my current_version is current_version"
+          - GRADLE_VERSION=$(awk -F "=" '/gradleVersion/ {gsub(/[[:space:]]/, "", $2); print $2}' build.gradle)
+          - echo "Gradle version is $GRADLE_VERSION"
   #      - name: Use the variable
   #        run: echo "The value is ${{ steps.set_variable.outputs.build_version }}"
   #      - name: Upload build artifacts
