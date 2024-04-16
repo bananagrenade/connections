@@ -38,7 +38,7 @@ jobs:
         run: ./gradlew build
       # Copy the built JAR file to the workspace
       - name: Copy JAR file to workspace
-        run: cp build/libs/connections.jar $GITHUB_WORKSPACE/connections.jar
+        run: cp build/libs/connections.jar ${{ github.workspace }}/connections.jar
 
   dependency-submission:
     runs-on: ubuntu-latest
@@ -64,14 +64,16 @@ jobs:
       contents: write
 
     steps:
+      - name: Display structure of downloaded files
+        run: ls -R  $GITHUB_WORKSPACE
+      - name: Display structure of downloaded files2
+        run: ls -R  ${{ github.workspace }}
       # Copy the JAR file from the previous job
       - name: Copy JAR file from build job
         uses: actions/download-artifact@v4
         with:
           name: connections.jar
           path: ${{ github.workspace }}
-      - name: Display structure of downloaded files
-        run: ls -R  $GITHUB_WORKSPACE
 
 #
 ##      # Login to Amazon ECR
