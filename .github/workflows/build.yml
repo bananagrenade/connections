@@ -42,15 +42,14 @@ jobs:
       - name: Set the variable
         id: set_variable
         run: |
-          current_version=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
-          echo "$BUILD_VERSION"
-      - name: Use the variable
-        run: echo "The value is ${{ steps.set_variable.outputs.build_version }}"
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: Package
-          path: build/libs/${{ steps.set_variable.outputs.build_version }}.jar
+          echo my build version is "$BUILD_VERSION"...
+  #      - name: Use the variable
+  #        run: echo "The value is ${{ steps.set_variable.outputs.build_version }}"
+  #      - name: Upload build artifacts
+  #        uses: actions/upload-artifact@v4
+  #        with:
+  #          name: Package
+  #          path: build/libs/${{ steps.set_variable.outputs.build_version }}.jar
 
   dependency-submission:
     runs-on: ubuntu-latest
