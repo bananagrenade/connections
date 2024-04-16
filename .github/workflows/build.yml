@@ -39,8 +39,8 @@ jobs:
       - name: Set the variable
         id: set_variable
         run: |
-          - GRADLE_VERSION=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
-          - echo "Gradle version is $GRADLE_VERSION"
+          version=$(sed -n "s/^version\s*=\s*'\(.*\)'/\1/p" build.gradle)
+          echo "Gradle version is $version"
 
   #      - name: Use the variable
   #        run: echo "The value is ${{ steps.set_variable.outputs.build_version }}"
