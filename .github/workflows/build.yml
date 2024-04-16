@@ -64,12 +64,16 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/download-artifact@v4
+      # Copy the JAR file from the previous job
+      - name: Copy JAR file from build job
+        uses: actions/download-artifact@v4
         with:
-          path: $GITHUB_WORKSPACE/connections.jar
+          name: connections.jar
+          path: ${{ github.workspace }}
       - name: Display structure of downloaded files
         run: ls -R  $GITHUB_WORKSPACE
 
+#
 ##      # Login to Amazon ECR
 ##      - name: Login to Amazon ECR
 ##        run: aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <your-account-id>.dkr.ecr.<your-region>.amazonaws.com
