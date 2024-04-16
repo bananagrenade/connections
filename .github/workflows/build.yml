@@ -39,6 +39,7 @@ jobs:
       - name: Set the variable
         id: set_variable
         run: |
+          ls
           echo "BUILD_VERSION=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)" >> $GITHUB_ENV
           echo my build version is "$BUILD_VERSION"...
   #      - name: Use the variable
