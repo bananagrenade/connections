@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        parallel-step: [ Run unit tests, Build with Gradle Wrapper ]
+        parallel-step: [ Run unit tests, Build with Gradle Wrapper, Set gradle version ]
     permissions:
       contents: read
     steps:
@@ -36,19 +36,15 @@ jobs:
         run: ./gradlew test
       - name: Build with Gradle Wrapper
         run: ./gradlew build
-      - name: Set the variable
-        id: set_variable
+      - name: Set gradle version
         run: |
           GRADLE_VERSION=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
           echo "Gradle version is $GRADLE_VERSION"
-
-  #      - name: Use the variable
-  #        run: echo "The value is ${{ steps.set_variable.outputs.build_version }}"
-  #      - name: Upload build artifacts
-  #        uses: actions/upload-artifact@v4
-  #        with:
-  #          name: Package
-  #          path: build/libs/${{ steps.set_variable.outputs.build_version }}.jar
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Package
+          path: build/libs/connections-$GRADLE_VERSION.jar
 
   dependency-submission:
     runs-on: ubuntu-latest
@@ -61,7 +57,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-
       # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
       # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
       - name: Generate and submit dependency graph
@@ -81,8 +76,8 @@ jobs:
       - name: Copy JAR file from build job
         uses: actions/download-artifact@v4
         with:
-          name: ${{ steps.set_variable.outputs.build_version }}.jar
-          path: ${{ github.workspace }}
+          name: connections-$GRADLE_VERSION.jar
+          path: ${{ github.workspace }}/builds/libs/
 
 #
 ##      # Login to Amazon ECR
