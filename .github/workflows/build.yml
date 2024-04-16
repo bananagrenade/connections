@@ -13,9 +13,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-env:
-  BUILD_VERSION: $(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -42,6 +39,7 @@ jobs:
       - name: Set the variable
         id: set_variable
         run: |
+          echo "BUILD_VERSION=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)" >> $GITHUB_ENV
           echo my build version is "$BUILD_VERSION"...
   #      - name: Use the variable
   #        run: echo "The value is ${{ steps.set_variable.outputs.build_version }}"
