@@ -40,10 +40,8 @@ jobs:
         id: set_variable
         run: |
           ls
-          echo "BUILD_VERSION=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)" >> $GITHUB_ENV
-          curr_version=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
-          echo my build version is "$BUILD_VERSION"...
-          echo my curr version is "$curr_version"...
+          current_version=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
+          echo "my current_version is current_version"
   #      - name: Use the variable
   #        run: echo "The value is ${{ steps.set_variable.outputs.build_version }}"
   #      - name: Upload build artifacts
