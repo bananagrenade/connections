@@ -40,7 +40,8 @@ jobs:
         run: |
           GRADLE_VERSION=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
           echo "Gradle version is $GRADLE_VERSION"
-          echo ${{ env.GRADLE_VERSION }}
+          echo "GRADLE_VERSION=$GRADLE_VERSION" >> $GITHUB_ENV
+          echo ${{ env.GRADLE_VERSION }}...
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
