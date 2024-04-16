@@ -43,18 +43,8 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: "connections-$GRADLE_VERSION.jar"
-          path: "build/libs/connections-$GRADLE_VERSION.jar"
-      - name: Print ${{ github.workspace }}
-        run: |
-          cd ${{ github.workspace }}
-          pwd
-          ls
-      - name: Print $GITHUB_WORKSPACE
-        run: |
-          cd $GITHUB_WORKSPACE
-          pwd
-          ls
+          name: package
+          path: build/libs
 
   dependency-submission:
     runs-on: ubuntu-latest
