@@ -39,7 +39,7 @@ jobs:
       - name: Set the variable
         id: set_variable
         run: |
-          - GRADLE_VERSION=$(awk -F "[ ']" '/version =/ {print $3}' build.gradle)
+          - GRADLE_VERSION=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
           - echo "Gradle version is $GRADLE_VERSION"
 
   #      - name: Use the variable
