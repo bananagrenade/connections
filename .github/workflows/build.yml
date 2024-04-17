@@ -40,13 +40,15 @@ jobs:
         run: |
           GRADLE_VERSION=$(grep -oP "version\s*=\s*'\K\d+\.\d+\.\d+" build.gradle)
           echo "Gradle version is $GRADLE_VERSION"
-          ARTIFACT_PATH="connections-$GRADLE_VERSION"
+          ARTIFACT_NAME="connections-$GRADLE_VERSION"
+          ARTIFACT_PATH="build/libs/connections-$GRADLE_VERSION"
+          echo "Artifact name is ARTIFACT_NAME"
           echo "Artifact path is $ARTIFACT_PATH"
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: package
-          path: build/libs
+          name: $ARTIFACT_NAME
+          path: $ARTIFACT_PATH
 
   dependency-submission:
     runs-on: ubuntu-latest
