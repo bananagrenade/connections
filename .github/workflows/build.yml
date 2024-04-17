@@ -42,8 +42,10 @@ jobs:
           echo "Gradle version is $GRADLE_VERSION"
           ARTIFACT_NAME="connections-$GRADLE_VERSION"
           ARTIFACT_PATH="build/libs/connections-$GRADLE_VERSION"
+          echo "artifactPath=$ARTIFACT_PATH" >> $GITHUB_ENV
+
           echo "Artifact name is ARTIFACT_NAME"
-          echo "Artifact path is $ARTIFACT_PATH"
+          echo "Artifact path is ${{ env.artifactPath }}"
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
